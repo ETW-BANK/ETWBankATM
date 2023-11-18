@@ -9,7 +9,7 @@ namespace Etw_BANK_FINAL.Utilities
 {
     internal class Utility
     {
-        // Utility class containing various utility methods
+        // Utility1 class containing various utility methods
 
         // Method to animate loading dots
         public static void AnimateLoadingDots(int numberOfDots, int animationSpeed)
@@ -124,15 +124,16 @@ namespace Etw_BANK_FINAL.Utilities
             do
             {
                 // Code to prompt for and validate currency input
-                Console.Write("Enter Currency: ");
+                Console.Write("Enter Currency:");
                 CurrencyType = Console.ReadLine().ToUpper();
+
 
                 if (CurrencyType != "USD" && CurrencyType != "EURO" && CurrencyType != "SEK")
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\n");
-                    Console.WriteLine("\nInvalid Currency please enter");
-                    Console.WriteLine("USD/EURO/SEK");
+
+                    Console.WriteLine("\n\u001b[31mInvalid Currency please enter (USD/EURO/SEK)\u001b[0m\n");
+
                     Console.ResetColor();
                 }
                 else
@@ -141,9 +142,11 @@ namespace Etw_BANK_FINAL.Utilities
                 }
 
             } while (true);
+
+
         }
 
-        // Method to perform currency conversion
+        //Method to perform currency conversion
 
         public static decimal CurrencyChanger(string val1, string val2, decimal amount)
         {
@@ -170,7 +173,38 @@ namespace Etw_BANK_FINAL.Utilities
 
             // Perform the currency conversion
             return amount * exchangeRate;
+
         }
+
+
+        public static string AccountTypeChecker()
+
+        {
+            string AccType;
+
+            do
+            {
+                Console.WriteLine("\n");
+                // Code to prompt for and validate currency input
+                Console.Write("Enter Account Type: ");
+                AccType = Console.ReadLine().ToUpper();
+
+                if (AccType != "SAVING" && AccType != "CURRENT" && AccType != "CHECKING")
+                {
+
+
+                    Console.WriteLine("\n \u001b[31mInvalid Account Type please enter (Saving/Current/Checking)\u001b[0m");
+
+
+                }
+                else
+                {
+                    return AccType;
+                }
+
+            } while (true);
+        }
+
 
 
         public static void EscapeKeyCall()
@@ -189,6 +223,8 @@ namespace Etw_BANK_FINAL.Utilities
                 }
             } while (key != ConsoleKey.Escape);
         }
+
+
 
 
     }
