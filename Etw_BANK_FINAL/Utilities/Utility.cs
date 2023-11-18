@@ -9,7 +9,7 @@ namespace Etw_BANK_FINAL.Utilities
 {
     internal class Utility
     {
-        // Utility1 class containing various utility methods
+        // Utility class containing various utility methods
 
         // Method to animate loading dots
         public static void AnimateLoadingDots(int numberOfDots, int animationSpeed)
