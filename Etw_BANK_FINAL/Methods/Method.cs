@@ -2,6 +2,8 @@
 using Etw_BANK_FINAL.MenuItems;
 using Etw_BANK_FINAL.Model;
 using Etw_BANK_FINAL.Utilities;
+using Etw_BANK_FINAL.WelcomeUI;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -190,6 +192,77 @@ namespace Etw_BANK_FINAL.Methods
                 Thread.Sleep(2000);
                 UserMenues.UserMenues();
             }
+        }
+
+        public static void WithdrawMoney()
+        {
+            using (EtwBankContext context = new EtwBankContext())
+            {
+                Console.WriteLine("\n\n\t\t================ Withdraw Money ================\n");
+                int accountId;
+                decimal withdrawalAmount;
+                do
+                {
+                    Console.Write("Enter Account Number: ");
+                    string inputAccountId = Console.ReadLine();
+                    if (int.TryParse(inputAccountId, out accountId))
+                    {
+                        break; // Break the loop if a valid integer value is entered
+                    }
+                    else
+                    {
+                        Console.WriteLine("");
+                        Console.WriteLine("\n \u001b[31m Invalid input for Account Number. Please enter a valid integer value.\u001b[0m \n");
+                    }
+                } while (true);
+                Console.WriteLine("\n");
+                do
+                {
+                    Console.Write("Enter Withdrawal Amount: ");
+                    string inputWithdrawalAmount = Console.ReadLine();
+                    if (decimal.TryParse(inputWithdrawalAmount, out withdrawalAmount) && withdrawalAmount > 100)
+                    {
+                        break; // Break the loop if a valid numeric value is entered and minimum amount is met.
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n \u001b[31m Invalid input for Withdrawal Amount. Please enter a valid Amount (Minimum Amount is 100).\u001b[0m \n");
+                    }
+                } while (true);
+                var account = context.Accounts.SingleOrDefault(a => a.AccountNumber == accountId);
+                if (account != null)
+                {
+                    if (account.Balance >= withdrawalAmount)
+                    {
+                        // Update account balance after withdrawal
+                        account.Balance -= withdrawalAmount;
+                        context.SaveChanges();
+                        Console.WriteLine("\n \u001b[32m Withdrowal Sucessfull.\u001b[0m \n");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n \u001b[31m Insufficient balance in the Account.\u001b[0m \n");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\n \u001b[31m Invalid Account Number. \u001b[0m \n");
+                }
+                currentUser.Accounts = context.Accounts
+              .Where(a => a.UserId == currentUser.UserId).ToList();
+            }
+            Thread.Sleep(1000);
+            //Utility.Loading();
+            UserMenues.UserMenu();
+        }
+
+        public static void Logout()
+        {
+            Utility.Loading(); // Display a loading indicator or perform any necessary cleanup tasks before logging out
+            currentUser = null;    // Reset the current user to null, effectively logging them out
+            Console.WriteLine("Logged out successfully.");    // Display a message confirming successful logout
+            Console.Clear();      // Clear the console screen after logout
+            Welcome.WelcomeUI(); // Navigate back to the welcome interface or initial menu
         }
     }
 }
