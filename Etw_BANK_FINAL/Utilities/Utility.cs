@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Etw_BANK_FINAL.Utilities
 {
-    internal class Utility
+    internal class Utility1
     {
         // Utility class containing various utility methods
 

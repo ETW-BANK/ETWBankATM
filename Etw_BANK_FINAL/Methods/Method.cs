@@ -157,7 +157,7 @@ namespace Etw_BANK_FINAL.Methods
                         // Perform currency conversion
                         string senderCurrency = senderAccount.Currency.ToUpper();
                         string receiverCurrency = receiverAccount.Currency.ToUpper();
-                        decimal exchangedAmount = Utility.CurrencyChanger(senderCurrency, receiverCurrency, amount);
+                        decimal exchangedAmount = Utility1.CurrencyChanger(senderCurrency, receiverCurrency, amount);
 
                         // Deduct the original amount from the sender's account
                         senderAccount.Balance -= amount;
@@ -252,13 +252,13 @@ namespace Etw_BANK_FINAL.Methods
               .Where(a => a.UserId == currentUser.UserId).ToList();
             }
             Thread.Sleep(1000);
-            //Utility.Loading();
+            Utility1.Loading();
             UserMenues.UserMenu();
         }
 
         public static void Logout()
         {
-            Utility.Loading(); // Display a loading indicator or perform any necessary cleanup tasks before logging out
+            Utility1.Loading(); // Display a loading indicator or perform any necessary cleanup tasks before logging out
             currentUser = null;    // Reset the current user to null, effectively logging them out
             Console.WriteLine("Logged out successfully.");    // Display a message confirming successful logout
             Console.Clear();      // Clear the console screen after logout
