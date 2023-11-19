@@ -147,7 +147,7 @@ namespace Etw_BANK_FINAL.Methods
                     }
                 } while (true);
 
-                var senderAccount = currentUser.Accounts.SingleOrDefault(a => a.AccountNumber == senderAcc);
+                var senderAccount = context.Accounts.FirstOrDefault(a => a.AccountNumber == senderAcc);
                 var receiverAccount = context.Accounts.SingleOrDefault(a => a.AccountNumber == receiverAcc);
 
                 if (senderAccount != null && receiverAccount != null)

@@ -42,7 +42,7 @@ namespace Etw_BANK_FINAL.Logins
                         continue;
                     }
                     // Securely retrieve the PIN input
-                    SecureString pass = Utility.PinHide();
+                    SecureString pass = Utility1.PinHide();
                     string pin = new System.Net.NetworkCredential(string.Empty, pass).Password;
                     Console.Clear();
                     Console.WriteLine(header);
@@ -67,7 +67,7 @@ namespace Etw_BANK_FINAL.Logins
                 Console.WriteLine("\n\t\t\t\t\t\u001b[31mMaximum login attempts reached. Exiting.\u001b[30m");
                 Thread.Sleep(2000);
                 Console.WriteLine("\n");
-                Utility.Loading();
+                Utility1.Loading();
                 Console.Clear();
                 Welcome.WelcomeUI();
             }
