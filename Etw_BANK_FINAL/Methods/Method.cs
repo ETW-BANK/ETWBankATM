@@ -369,6 +369,49 @@ namespace Etw_BANK_FINAL.Methods
             UserMenues.UserMenu();
         }
 
+        public static void ViewAllUsers()
+
+        {
+            using (EtwBankContext context = new EtwBankContext())
+            {
+                var accounts = context.Accounts
+                    .Select(p => new
+                    {
+                        p.UserId,
+                        p.AccountNumber,
+                        p.AccType,
+                        p.Balance,
+                        p.Currency,
+                        p.TransactionDate
+                    }).ToList();
+
+
+
+                Console.WriteLine("\n\n\t\t================ Displaying All the Users ================\n");
+                foreach (var account in accounts)
+                {
+                    if (account == null)
+                    {
+                        Console.WriteLine("NO Account Found");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{account.UserId}  {account.AccountNumber} {account.AccType} {account.Balance}  {account.Currency} {account.TransactionDate}");
+
+                    }
+
+
+                }
+
+
+                Utility1.EscapeKeyCall();
+                Utility1.Loading();
+                AdminMenues.AdminMenu();
+
+
+            }
+        }
+
         public static void Logout()
         {
             Utility1.Loading(); // Display a loading indicator or perform any necessary cleanup tasks before logging out
