@@ -33,9 +33,9 @@ namespace Etw_BANK_FINAL.MenuItems
                 Console.WriteLine($"\t\t\t\t{"3. Logout"}");
 
                 // Read user's choice
-                if (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 6)
+                if (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 3)
                 {
-                    Console.WriteLine("Invalid choice. Please enter a number between 1 and 6.");
+                    Console.WriteLine("Invalid choice. Please enter a number between 1 and 3.");
                     continue;
                 }
 
