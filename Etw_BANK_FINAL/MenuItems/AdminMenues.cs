@@ -43,7 +43,7 @@ namespace Etw_BANK_FINAL.MenuItems
                 switch (choice)
                 {
                     case 1:
-                        Method.Newuser();
+                        Method.NewUser();
                         break;
 
                     case 2:

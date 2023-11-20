@@ -15,6 +15,44 @@ namespace Etw_BANK_FINAL.Methods
     internal class Method
     {
         public static User currentUser;
+
+        public static void NewUser()
+        {
+            using (EtwBankContext context = new EtwBankContext())
+            {
+
+                var users = new User();
+
+                Console.WriteLine("Enter user Name");
+                string name = Console.ReadLine().ToUpper();
+
+                string pin = Utility1.GeneratePin();
+
+                users.UserName = name;
+                users.PinCode = pin;
+
+                context.Users.Add(users);
+                context.SaveChanges();
+
+
+
+
+
+
+                Console.WriteLine("User Added Sucessfully");
+
+                Thread.Sleep(1000);
+
+
+
+                AdminMenues.AdminMenu();
+
+            }
+
+
+        }
+
+
         public static void DepositMoney()
         {
             int accountId;
@@ -406,7 +444,7 @@ namespace Etw_BANK_FINAL.Methods
 
                 Utility1.EscapeKeyCall();
                 Utility1.Loading();
-                AdminMenues.AdminMenu();
+                 
 
 
             }
