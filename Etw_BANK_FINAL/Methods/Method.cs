@@ -90,7 +90,7 @@ namespace Etw_BANK_FINAL.Methods
 
          
 
-            UserMenues.UserMenues(); // Return to the user menu after completing the deposit process
+            UserMenues.UserMenu(); // Return to the user menu after completing the deposit process
         }
 
         public static void TransferMoney()
@@ -190,7 +190,7 @@ namespace Etw_BANK_FINAL.Methods
                 }
 
                 Thread.Sleep(2000);
-                UserMenues.UserMenues();
+                UserMenues.UserMenu();
             }
         }
 
@@ -253,6 +253,39 @@ namespace Etw_BANK_FINAL.Methods
             }
             Thread.Sleep(1000);
             Utility1.Loading();
+            UserMenues.UserMenu();
+        }
+
+
+        public static void ViewBalance()
+        {
+            // Displaying the user's accounts and their details
+
+            if (currentUser != null && currentUser.Accounts != null)
+            {
+                Console.WriteLine("\n\n\t\t================ Your Accounts & Balance ================\n");
+
+                Console.WriteLine($"Account Owner: \u001b[32m {currentUser.UserName}\n \u001b[0m");
+                Console.WriteLine($"=============================\n");
+
+                foreach (var account in currentUser.Accounts)
+                {
+                    Console.WriteLine($"  Account Number: {account.AccountNumber}  Balance: {account.Balance}  ACccountType:{account.AccType}  Currency:{account.Currency}   CreatedDate:{account.TransactionDate}");
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("User or accounts information is null.");
+            }
+
+
+
+            Utility1.EscapeKeyCall();
+
+
+
+
             UserMenues.UserMenu();
         }
 
