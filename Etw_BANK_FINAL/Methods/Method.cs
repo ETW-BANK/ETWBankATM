@@ -289,6 +289,86 @@ namespace Etw_BANK_FINAL.Methods
             UserMenues.UserMenu();
         }
 
+        public static void CreateBankAccount(User currentUser)
+        {
+            Console.WriteLine("\n\n\t\t================ Create a New Bank Account ================\n");
+
+            using (EtwBankContext context = new EtwBankContext())
+            {
+
+
+                int Accnumber = Utility1.GenerateAccNumber();
+                decimal initialBalance;
+                string AccountType;
+
+                do
+                {
+                    Console.Write("Enter Initial Balance:");
+                    if (!decimal.TryParse(Console.ReadLine(), out initialBalance))
+                    {
+
+                        Console.WriteLine("\n \u001b[31m Invalid input for Balance.\u001b[0m \n");
+                    }
+                    else
+                    {
+                        break; // Break the loop if valid numeric value entered
+                    }
+                } while (true);
+
+                Console.WriteLine("\n");
+
+
+                string currency = Utility1.CheckCurrency();
+
+                do
+                {
+
+                    AccountType = Utility1.AccountTypeChecker();
+
+                    if (string.IsNullOrWhiteSpace(AccountType) || AccountType.Any(char.IsDigit))
+                    {
+                        Console.WriteLine("\n \u001b[31m Invalid input for account type. Please enter a valid string value.\u001b[0m \n");
+                    }
+                    else
+                    {
+                        break; // Break the loop if a valid string value entered
+                    }
+                } while (true);
+
+
+
+                // Create a new account for the user
+                var newAccount = new Account
+                {
+                    AccountNumber = Accnumber,
+                    Balance = initialBalance,
+                    Currency = currency,
+                    AccType = AccountType,
+                    TransactionDate = DateTime.Now,
+                    UserId = currentUser.UserId
+                };
+
+
+                context.Accounts.Add(newAccount);
+
+
+                context.SaveChanges();
+
+                //updates the users account including the newely added 
+
+                currentUser.Accounts = context.Accounts
+                .Where(a => a.UserId == currentUser.UserId).ToList();
+
+            }
+
+
+            Console.WriteLine("\n \u001b[32m Account Creation successful.\n \u001b[0m");
+
+            Thread.Sleep(1000);
+
+            UserMenues.UserMenu();
+        }
+
         public static void Logout()
         {
             Utility1.Loading(); // Display a loading indicator or perform any necessary cleanup tasks before logging out
