@@ -57,7 +57,7 @@ namespace Etw_BANK_FINAL.WelcomeUI
 
                     case ConsoleKey.Enter:
                         Console.WriteLine("\t\t\n");
-                        Utility.Loading();
+                        Utility1.Loading();
                         isChoosen = true;
 
                         // Navigating based on the selected choice
