@@ -20,7 +20,7 @@ namespace Etw_BANK_FINAL.MenuItems
             {
                 // Clear the console and display a welcome message for the current user
                 Console.Clear();
-                Console.WriteLine($"\n\n\t\t\t  =====================WELCOME \u001b[32m {currentUser.UserName} \u001b[0m TO ETW - BANK========================\n\n\n");
+                Console.WriteLine($"\n\n\t\t\t  =====================WELCOME \u001b[32m {currentUser.UserName.ToUpper()} \u001b[0m TO ETW - BANK========================\n\n\n");
 
                 Console.WriteLine("\n\n\t\t\t\t\t\t What do you wish to do");
                 Console.WriteLine("\t\t\t\t\t\t ======================\n\n");
@@ -45,11 +45,9 @@ namespace Etw_BANK_FINAL.MenuItems
 
                     Thread.Sleep(2000);
                     Console.Clear();
-
-
-
                     continue;
                 }
+
                     switch (choice)
                     {
                         case 1:
