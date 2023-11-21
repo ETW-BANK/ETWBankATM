@@ -16,48 +16,7 @@ namespace Etw_BANK_FINAL.Methods
     {
         public static User currentUser;
 
-        //public static void NewUser()
-        //{
-        //    using (EtwBankContext context = new EtwBankContext())
-        //    {
-
-        //        var users = new User();
-
-        //        Console.WriteLine("Enter user Name");
-        //        string name = Console.ReadLine().ToUpper();
-
-
-
-
-        //        string pin = Utility1.GeneratePin();
-
-        //        users.UserName = name;
-        //        users.PinCode = pin;
-
-
-
-        //        context.Users.Add(users);
-        //        context.SaveChanges();
-
-
-
-
-
-
-
-        //        Console.WriteLine("\n \u001b[32m User Added successfuly.\n \u001b[0m");
-
-
-        //        Thread.Sleep(1000);
-
-
-
-        //        AdminMenues.AdminMenu();
-
-        //    }
-
-
-        //}
+        
 
         public static void NewUser()
         {
