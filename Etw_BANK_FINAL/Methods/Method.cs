@@ -39,7 +39,9 @@ namespace Etw_BANK_FINAL.Methods
 
 
 
-                Console.WriteLine("User Added Sucessfully");
+
+                Console.WriteLine("\n \u001b[32m User Added successfuly.\n \u001b[0m");
+
 
                 Thread.Sleep(1000);
 
