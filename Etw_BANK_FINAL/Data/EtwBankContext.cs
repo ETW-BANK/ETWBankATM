@@ -18,7 +18,7 @@ namespace Etw_BANK_FINAL.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Configure your database connection here
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=EtwBankATM_DB;Integrated Security=True;Pooling=False");
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ETWBank_DB_NEW;Integrated Security=True;Pooling=False");
         }
     }
 }

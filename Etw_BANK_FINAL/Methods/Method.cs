@@ -194,7 +194,7 @@ namespace Etw_BANK_FINAL.Methods
                     }
                 } while (true);
 
-                var senderAccount = context.Accounts.FirstOrDefault(a => a.AccountNumber == senderAcc);
+                var senderAccount = context.Accounts.SingleOrDefault(a => a.AccountNumber == senderAcc);
                 var receiverAccount = context.Accounts.SingleOrDefault(a => a.AccountNumber == receiverAcc);
 
                 if (senderAccount != null && receiverAccount != null)
@@ -212,8 +212,15 @@ namespace Etw_BANK_FINAL.Methods
                         // Add the exchanged amount to the receiver's account
                         receiverAccount.Balance += exchangedAmount;
 
+
+                        currentUser.Accounts = context.Accounts
+                   .Where(a => a.UserId == currentUser.UserId)
+                   .ToList();
+
                         // Save changes to the database
                         context.SaveChanges();
+
+
 
                         // Output success message
                         Console.ForegroundColor = ConsoleColor.Green;
