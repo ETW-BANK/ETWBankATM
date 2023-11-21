@@ -62,9 +62,6 @@ namespace Etw_BANK_FINAL.Methods
             }
         }
 
-
-
-
         public static void DepositMoney()
         {
             int accountId;

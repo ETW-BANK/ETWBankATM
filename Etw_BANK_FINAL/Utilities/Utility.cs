@@ -87,8 +87,8 @@ namespace Etw_BANK_FINAL.Utilities
             int size = 6;
             for (int i = 0; i < size; i++)
             {
-                int rand = random.Next(000000, 999999);
-                Accnumber = rand;
+                int rand = random.Next(0, 9);
+                Accnumber =Accnumber*10 + rand;
             }
 
             return Accnumber;
