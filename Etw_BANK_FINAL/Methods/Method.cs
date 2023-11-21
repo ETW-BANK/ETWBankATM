@@ -347,6 +347,13 @@ namespace Etw_BANK_FINAL.Methods
 
                         Console.WriteLine("\n \u001b[31m Invalid input for Balance.\u001b[0m \n");
                     }
+
+
+                    else if (initialBalance < 100)
+                    {
+                        Console.WriteLine("\n \u001b[31m Initial Balance must be a minimum of 100 .\u001b[0m \n");
+
+                    }
                     else
                     {
                         break; // Break the loop if valid numeric value entered

@@ -13,17 +13,21 @@ namespace Etw_BANK_FINAL.MenuItems
         // Define an AdminMenu method
         public static void AdminMenu()
         {
-            // Clear the console and display a welcome message for the current user
-            Console.Clear();
-            Console.WriteLine($"\n\n\t\t\t  =====================WELCOME \u001b[32m {currentUser.UserName} \u001b[0m TO ETW - BANK========================\n\n");
-
-            Console.WriteLine("\n\n\t\t\t\t\t\t What do you wish to do");
-            Console.WriteLine("\t\t\t\t\t\t ======================\n\n");
+           
+         
 
             int choice;
 
             do
             {
+                // Clear the console and display a welcome message for the current user
+                Console.Clear();
+                Console.WriteLine($"\n\n\t\t\t  =====================WELCOME \u001b[32m {currentUser.UserName} \u001b[0m TO ETW - BANK========================\n\n");
+
+                Console.WriteLine("\n\n\t\t\t\t\t\t What do you wish to do");
+                Console.WriteLine("\t\t\t\t\t\t ======================\n\n");
+
+
                 Console.WriteLine($"\t\t\t\t\u001b[35m {"Enter Choice 1-3"}\u001b[0m");
 
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
