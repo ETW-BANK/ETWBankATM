@@ -26,10 +26,15 @@ namespace Etw_BANK_FINAL.Methods
                 Console.WriteLine("Enter user Name");
                 string name = Console.ReadLine().ToUpper();
 
+
+
+
                 string pin = Utility1.GeneratePin();
 
                 users.UserName = name;
                 users.PinCode = pin;
+
+              
 
                 context.Users.Add(users);
                 context.SaveChanges();

@@ -38,7 +38,7 @@ namespace Etw_BANK_FINAL.MenuItems
                 Console.ResetColor();
 
                 // Read the user's input and perform actions based on their choice
-                if (int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 6)
+                if (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 6)
                 {
 
                     Console.WriteLine("\n\t\t\t\t \u001b[31m Invalid input . Please enter a 1-6.\u001b[0m \n");

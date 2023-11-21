@@ -81,14 +81,14 @@ namespace Etw_BANK_FINAL.Utilities
         {
             // Code to generate a random account number of a specified size
             Random random = new Random();
-            int Accnumber = 0;
+            int Accnumber=0;
 
 
             int size = 6;
             for (int i = 0; i < size; i++)
             {
-                int rand = random.Next(0, 9);
-                Accnumber = Accnumber * 10 + rand;
+                int rand = random.Next(000000, 999999);
+                Accnumber = rand;
             }
 
             return Accnumber;
