@@ -2,7 +2,7 @@
 
 
 
-Welcome to the ETW Bank  repository! This project is a simple banking application developed by the ETW Bank team.
+Welcome to the ETW Bank  repository! This project is a simple banking application developed by the ETW Team.
 
 Contributors
 
@@ -18,7 +18,7 @@ This banking application allows users to perform various banking operations, suc
 
 User Features
 
-- Create a New Bank Account: Users can create a new bank account by providing initial balance, selecting a currency, and specifying the account type.
+- Users can create a new bank account by providing initial balance, selecting a currency, and specifying the account type.
 
 - View Balance: Users can view the balance of their accounts.
 
@@ -27,6 +27,10 @@ User Features
 - Withdraw Money: Users can withdraw money from their accounts.
 
 - Deposit Money: Users can deposit money into their accounts.
+  
+
+
+  
 Admin Features
 
 - Create New User: Admins can create new bank customers by providing necessary details.
