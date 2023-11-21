@@ -34,7 +34,7 @@ namespace Etw_BANK_FINAL.Methods
                     // Check if the user already exists
                     var existingUser = context.Users.FirstOrDefault(u => u.UserName == name);
 
-                    if (existingUser != null)
+                    if (existingUser != null) //checks if the user exists
                     {
                         Console.WriteLine("\n \u001b[31m User already exists! Please choose a different username.\n \u001b[0m");
                         Thread.Sleep(1000);
