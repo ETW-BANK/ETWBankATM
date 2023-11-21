@@ -39,7 +39,11 @@ namespace Etw_BANK_FINAL.MenuItems
                 // Read user's choice
                 if (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 3)
                 {
-                    Console.WriteLine("Invalid choice. Please enter a number between 1 and 3.");
+                     Console.WriteLine("\n\t\t\t\t \u001b[31m Invalid input . Please enter a 1-3.\u001b[0m \n");
+
+                    Thread.Sleep(2000);
+                    Console.Clear();
+
                     continue;
                 }
 
@@ -57,6 +61,8 @@ namespace Etw_BANK_FINAL.MenuItems
                     case 3:
                         Method.Logout();
                         break;
+
+     
                 }
 
             } while (choice != 3);

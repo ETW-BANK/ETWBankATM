@@ -38,8 +38,18 @@ namespace Etw_BANK_FINAL.MenuItems
                 Console.ResetColor();
 
                 // Read the user's input and perform actions based on their choice
-                if (int.TryParse(Console.ReadLine(), out choice))
+                if (int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 6)
                 {
+
+                    Console.WriteLine("\n\t\t\t\t \u001b[31m Invalid input . Please enter a 1-6.\u001b[0m \n");
+
+                    Thread.Sleep(2000);
+                    Console.Clear();
+
+
+
+                    continue;
+                }
                     switch (choice)
                     {
                         case 1:
@@ -61,15 +71,11 @@ namespace Etw_BANK_FINAL.MenuItems
                         case 6:
                             Method.Logout();
                             break;
-                        default:
-                            Console.WriteLine("Invalid choice. Please try again.");
-                            break;
+                   
                     }
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter a number.");
-                }
+              
+                    Console.WriteLine("\n\t\t\t\t \u001b[31m Invalid input . Please enter a 1-6.\u001b[0m \n");
+                
 
             } while (choice != 6);
         }
